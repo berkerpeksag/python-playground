@@ -14,7 +14,7 @@ class Otomobil(object):
 
 
     def durdur(self):
-        print 'Otomobil durduruldu. Yapılan toplam mesafe: %dkm.' % (self.mesafe)
+        print 'Otomobilin kontağı kapatıldı. Yapılan toplam mesafe: %dkm.' % (self.mesafe)
 
 
     def hizlan(self):
