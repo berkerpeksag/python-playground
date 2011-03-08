@@ -7,8 +7,8 @@ def main():
     c = Otomobil()    
 
     i = 0
-    while True:
-        try:
+    try:
+        while True:
             if i == 0:
                 c.calistir()
 
@@ -22,9 +22,8 @@ def main():
                 break
 
             i += 1
-        except BenzinBitti:
-            print '20lt benzin koyulacak.'
-            break
+    except BenzinBitti:
+        print '20lt benzin koyulacak.'
 
 
 if __name__ == '__main__':
