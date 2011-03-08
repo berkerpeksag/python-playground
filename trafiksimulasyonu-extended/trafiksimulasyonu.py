@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import otomobil
+from otomobil import *
 
 def main():
-    x = A()
-    print x    
-
-    c = otomobil.Otomobil()    
+    c = Otomobil()    
 
     i = 0
     while True:
@@ -27,6 +24,7 @@ def main():
             i += 1
         except BenzinBitti:
             print '20lt benzin koyulacak.'
+            break
 
 
 if __name__ == '__main__':

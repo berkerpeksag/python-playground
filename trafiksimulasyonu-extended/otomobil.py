@@ -19,18 +19,14 @@ class Otomobil(object):
     def calistir(self):
         print 'Otomobil çalıştırıldı. Gitmeye hazır.'
 
-
     def durdur(self):
         print 'Otomobilin kontağı kapatıldı. Yapılan toplam mesafe: %dkm.' % (self.mesafe)
-        raise BenzinBitti
-
 
     def hizlan(self):
         if self.hiz % 10 == 0:
             self.hiz += 10
             self.mesafe += self.hiz_km[self.hiz]
             print 'Gaza basıldı. Soz hız: %dkm/s' % (self.hiz)
-
 
     def yavasla(self):
         if self.hiz == 0:
@@ -39,7 +35,6 @@ class Otomobil(object):
             self.hiz -= 10
             self.mesafe += self.hiz_km[self.hiz]
             print 'Frene basıldı. Soz hız: %dkm/s' % (self.hiz)
-
 
     def depo_kapagini_ac(self, miktar = 20):
         for i in (self.hiz / 10):
@@ -52,11 +47,9 @@ class Otomobil(object):
         def __init__(self, miktar):
             self.miktar = miktar
 
-
         def koy(self, miktar):
             self.miktar += miktar
             print '%dlt benzin konuldu. Yeni miktar: %dlt.' % (miktar, self.miktar)
-
 
         def cek(self, miktar):
             if miktar > self.miktar:
