@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+"""The map function takes a function and a number of
+lists as arguments (usually just one) and applies the
+function to each element of the list, collecting the
+elements together into a new list.
+"""
+
 def add(x, y):
     return x + y
 
