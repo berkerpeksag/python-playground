@@ -3,7 +3,7 @@
 
 
 class A(object):
-    def __getattr__(self, name):
+    def __getattribute__(self, name):
         if name.startswith('print_'):
             return object.__getattribute__(self, name[6:])
 
