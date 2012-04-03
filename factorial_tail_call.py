@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-def factorial(n, f = 1):
+def factorial(n, f=1):
     if n == 0:
         return f
     else:
