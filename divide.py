@@ -8,6 +8,7 @@ The Algorithm Design Manual by Steven S. Skiena
 either the / or + operators. Find a first way to do it.
 """
 
+
 def divide(numerator, denominator):
     quotient = 0
 
@@ -18,8 +19,11 @@ def divide(numerator, denominator):
     return quotient
 
 
-if __name__ == '__main__':
+def main():
     print divide(4, 2)
     print divide(6, 3)
     print divide(10, 5)
     print divide(50, 10)
+
+if __name__ == '__main__':
+    main()

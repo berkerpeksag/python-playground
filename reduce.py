@@ -8,12 +8,16 @@ call and the next element, etc. until all the elements
 have been processed.
 """
 
+
 def add(x, y):
     return x + y
 
-if __name__ == '__main__':
-    lst = [1, 2, 3]
 
-    sum_list = reduce(add, lst)
+def main():
+    l = [1, 2, 3]
+
+    sum_list = reduce(add, l)
     print sum_list
-  
+
+if __name__ == '__main__':
+    main()

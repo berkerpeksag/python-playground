@@ -5,7 +5,8 @@
 See map.py, reduce.py and filter.py
 """
 
-if __name__ == '__main__':
+
+def main():
     list1 = [1, 2, 3, 4, 5]
     list2 = [6, 7, 8, 9, 10]
 
@@ -22,4 +23,6 @@ if __name__ == '__main__':
     print 'Map', list_map
     print 'Reduce', list_reduce
     print 'Filter', odd_nums
-  
+
+if __name__ == '__main__':
+    main()

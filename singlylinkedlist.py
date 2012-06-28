@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+
 class Node(object):
-    def __init__(self, cargo = None, next = None):
+    def __init__(self, cargo=None, next=None):
         self.cargo = cargo
         self.next = next
 
@@ -11,12 +12,23 @@ class Node(object):
 
 
 class LinkedList(object):
+    """A singly linked list implementation in Python.
+
+        >>> l = LinkedList()
+        >>> l.insert(1)
+        >>> l.insert(4)
+        >>> l.insert(11)
+        >>> l.insert(7)
+        >>> l.insert(1)
+        >>> print l
+    """
+
     def __init__(self):
         self.first = None
         self.last = None
 
     def insert(self, x):
-        if self.first == None: # Burası sadece if self.first: de olur mu?
+        if self.first == None:  # XXX: Burası sadece if self.first: de olur mu?
             self.first = Node(x, None)
             self.last = self.first
         elif self.last == self.first:
@@ -31,7 +43,6 @@ class LinkedList(object):
     def __str__(self):
         if self.first != None:
             current = self.first
-
             out = []
 
             while current.next != None:
@@ -39,7 +50,6 @@ class LinkedList(object):
                 out.append(str(current.value))
 
             return ', '.join(out)
-
         return 'Empty.'
 
     def clear(self):

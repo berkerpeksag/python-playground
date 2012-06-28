@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+
 def memoize(function):
-    cache = {}
+    cache = dict()
 
     def decorated_function(*args):
         if args in cache:
