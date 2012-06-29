@@ -28,7 +28,7 @@ class LinkedList(object):
         self.last = None
 
     def insert(self, x):
-        if self.first == None:  # XXX: Burası sadece if self.first: de olur mu?
+        if self.first is None:
             self.first = Node(x, None)
             self.last = self.first
         elif self.last == self.first:
@@ -54,12 +54,3 @@ class LinkedList(object):
 
     def clear(self):
         self.__init__()
-
-
-"""l = LinkedList()
-l.insert(1)
-l.insert(4)
-l.insert(11)
-l.insert(7)
-l.insert(1)
-print l"""
