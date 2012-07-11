@@ -5,3 +5,5 @@
 bin/
 include/
 lib/
+local/
+share/
