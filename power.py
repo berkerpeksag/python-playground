@@ -12,7 +12,7 @@ serious imbalance
 Algorithm Design Manual, Chapter 2: Algorithm Analysis, 2.6.5 Fast Exponention
 """
 
-from sys import argv
+import unittest
 
 
 def power(a, n):
@@ -25,7 +25,12 @@ def power(a, n):
         return a * divide ** 2
 
 
+class TestPower(unittest.TestCase):
+    def test_power(self):
+        self.assertEqual(4, power(2, 2))
+        self.assertEqual(2, power(2, 1))
+        self.assertEqual(8, power(2, 3))
+        self.assertEqual(104857600000000000000000000L, power(20, 20))
+
 if __name__ == '__main__':
-    if len(argv) != 3:
-        exit('Usage: {0:s} int int'.format(__file__))
-    print power(int(argv[1]), int(argv[2]))
+    unittest.main()
