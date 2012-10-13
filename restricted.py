@@ -11,7 +11,6 @@ https://gist.github.com/3437909
 import platform
 import pprint
 import os
-import os.path
 import sys
 
 
