@@ -3,7 +3,9 @@
 """
 Execution of restricted Python code.
 
-Use with `evil.py`.
+Use with `evil.py`::
+
+    $ python restricted.py evil.py
 
 https://gist.github.com/3437909
 """
