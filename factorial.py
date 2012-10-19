@@ -5,7 +5,7 @@
 def factorial(n):
     r = 1
 
-    for i in reversed(range(1, n + 1)):
+    for i in xrange(1, n + 1):
         r *= i
 
     return r

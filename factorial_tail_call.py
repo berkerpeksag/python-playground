@@ -14,7 +14,6 @@ def main():
     print factorial(1)
     print factorial(0)
     print factorial(10)
-    print factorial(-3)
 
 if __name__ == '__main__':
     main()
