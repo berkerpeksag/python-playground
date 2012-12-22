@@ -1,27 +1,29 @@
 # coding: utf-8
 
-from contextlib import contextmanager
-
 """
-Add context manager for the "try: ... except: pass" pattern
+Add context manager for the ``try: ... except: pass`` pattern.
 
-It is a somewhat common pattern to write:
+It is a somewhat common pattern to write::
 
     try:
         do_something()
     except SomeException:
         pass
 
-http://bugs.python.org/issue15806
+See for more information: http://bugs.python.org/issue15806
 """
+
+from contextlib import contextmanager
 
 
 @contextmanager
 def ignored(*exceptions):
     """Context manager to ignore particular exceptions.
 
-    While the class based version would likely be fractionally faster, the
-    generator based version is more obviously correct."""
+    While the class based version would likely be fractionally
+    faster, the generator based version is more obviously
+    correct.
+    """
     try:
         yield
     except exceptions:
@@ -42,18 +44,18 @@ class Ignore:
 
 
 def main():
-    d = dict()
+    dct = {}
 
     # decorator version
     with ignored(KeyError):
-        del d['spam']
+        del dct['spam']
 
     # class-based version
     with Ignore(KeyError):
-        del d['spam']
+        del dct['spam']
 
     try:
-        del d['spam']
+        del dct['spam']
     except KeyError:
         pass
 
