@@ -1,7 +1,15 @@
 """
-Simple usage:
+Usage
+-----
 
     $ python beyz.py <base64_string> <data_type>
+
+TODOs
+-----
+
+* Dosya formatını ``png`` diye vermek yerine, direkt olarak
+  ``data:image/png;base64,iVBORw0KGgo...`` kısmı parse
+  edilebilir.
 """
 
 import base64
