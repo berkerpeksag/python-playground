@@ -2,14 +2,8 @@
 Usage
 -----
 
-    $ python beyz.py <base64_string> <data_type>
+    $ python beyz.py data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA
 
-TODOs
------
-
-* Dosya formatını ``png`` diye vermek yerine, direkt olarak
-  ``data:image/png;base64,iVBORw0KGgo...`` kısmı parse
-  edilebilir.
 """
 
 import base64
@@ -25,12 +19,13 @@ def usage():
 
 
 def main():
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 2:
         usage()
-    if sys.argv[2].lower() not in EXTENSIONS:
+    b64_type, b64_str = sys.argv[1].split(';base64,')
+    if not b64_type.endswith(EXTENSIONS):
         usage()
-    decoded_string = base64.b64decode(sys.argv[1])
-    file_name = str(uuid.uuid1()) + '.' + sys.argv[2]
+    decoded_string = base64.b64decode(b64_str)
+    file_name = str(uuid.uuid1()) + '.' + b64_type[-3:]
     with open(file_name, 'w') as fobj:
         fobj.write(decoded_string)
     print '{} created.'.format(file_name)
