@@ -3,6 +3,11 @@
 """
 Add context manager for the ``try: ... except: pass`` pattern.
 
+.. note::
+   ``contextlib.ignored`` has been added to Python 3.4. See the
+   related changeset:
+   http://hg.python.org/cpython/rev/406b47c64480
+
 It is a somewhat common pattern to write::
 
     try:
