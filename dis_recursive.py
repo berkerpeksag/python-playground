@@ -14,8 +14,8 @@ def get_code_object(obj, compilation_mode="exec"):
             return compile(obj, "<string>", compilation_mode)
         except SyntaxError as error:
             raise ValueError("syntax error in passed string") from error
-    raise TypeError("get_code_object() can not handle '%s' objects" %
-                        (type(obj).__name__,))
+    msg = "get_code_object() can not handle '{:s}' objects"
+    raise TypeError(msg.format(type(obj).__name__))
 
 
 def diss(obj, mode="exec", recurse=False):
