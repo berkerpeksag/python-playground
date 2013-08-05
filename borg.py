@@ -12,7 +12,7 @@ make copies there is only ever one of them. We don't need no stinkin'
 design patterns.
 
 http://code.activestate.com/recipes/66531-singleton-we-dont-need-no-stinkin-singleton-the-bo/#c23 
-""" and None
+"""
 
 class Singleton(object):
     def __new__(cls, *args, **kwargs):
