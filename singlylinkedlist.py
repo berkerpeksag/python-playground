@@ -41,11 +41,11 @@ class LinkedList(object):
             self.last = current
 
     def __str__(self):
-        if self.first != None:
+        if self.first is not None:
             current = self.first
             out = []
 
-            while current.next != None:
+            while current.next is not None:
                 current = current.next
                 out.append(str(current.value))
 
@@ -53,4 +53,5 @@ class LinkedList(object):
         return 'Empty.'
 
     def clear(self):
-        self.__init__()
+        self.first = None
+        self.last = None

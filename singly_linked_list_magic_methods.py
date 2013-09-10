@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-"""Singly linked list example, in real life
-better to use blist module easy_install blist"""
-
 from copy import deepcopy
 
 
@@ -34,8 +31,8 @@ class List(object):
         if current is not None:
             yield current
         else:
-            return
-        while current.next_node != None:
+            return None
+        while current.next_node is not None:
             current = current.next_node
             yield current
 
@@ -99,14 +96,14 @@ class List(object):
         for count, node in enumerate(self):
             if count == n:
                 return node.data
-        raise IndexValue('List index out of range')
+        raise IndexError('List index out of range')
 
     def __setitem__(self, n, value):
         for count, node in enumerate(self):
             if count == n:
                 node.data = value
                 return
-        raise IndexValue('List index out of range')
+        raise IndexError('List index out of range')
 
     def find(self, value):
         for node in self:
