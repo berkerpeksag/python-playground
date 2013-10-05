@@ -7,3 +7,5 @@ include/
 lib/
 local/
 share/
+
+c-api/build
