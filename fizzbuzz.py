@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-
-
 def main():
     for num in xrange(1, 101):
         msg = ''
