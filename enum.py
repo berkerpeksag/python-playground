@@ -1,4 +1,9 @@
-"""Simple and incomplete enum implementations in Python."""
+"""
+Simple and incomplete enum implementations in Python.
+
+http://python-notes.boredomandlaziness.org/en/latest/python3/enum_creation.html
+
+"""
 
 from __future__ import print_function
 from collections import namedtuple
