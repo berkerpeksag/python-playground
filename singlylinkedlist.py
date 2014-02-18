@@ -1,27 +1,19 @@
 #!/usr/bin/env python
-# coding: utf-8
+
+from __future__ import print_function
 
 
 class Node(object):
-    def __init__(self, cargo=None, next=None):
+    def __init__(self, cargo=None, next_item=None):
         self.cargo = cargo
-        self.next = next
+        self.next = next_item
 
     def __str__(self):
         return str(self.cargo)
 
 
 class LinkedList(object):
-    """A singly linked list implementation in Python.
-
-        >>> l = LinkedList()
-        >>> l.insert(1)
-        >>> l.insert(4)
-        >>> l.insert(11)
-        >>> l.insert(7)
-        >>> l.insert(1)
-        >>> print l
-    """
+    """A singly linked list implementation in Python."""
 
     def __init__(self):
         self.first = None
@@ -47,11 +39,19 @@ class LinkedList(object):
 
             while current.next is not None:
                 current = current.next
-                out.append(str(current.value))
+                out.append(str(current.cargo))
 
             return ', '.join(out)
-        return 'Empty.'
+        return '<LinkedList: Empty>'
 
     def clear(self):
         self.first = None
         self.last = None
+
+
+if __name__ == '__main__':
+    lst = LinkedList()
+    lst.insert(3)
+    lst.insert(21)
+    lst.insert('Lindsey')
+    print(lst)
