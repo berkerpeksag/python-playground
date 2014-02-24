@@ -1,8 +1,12 @@
+from __future__ import print_function
+
+
 class Application(object):
 
     def __call__(self, environ, start_response):
         start_response('200 OK', [('Content-type', 'text/plain')])
         return ['Cardinal Biggles.']
+
 
 if __name__ == '__main__':
     import sys
@@ -12,5 +16,12 @@ if __name__ == '__main__':
         port = int(sys.argv[1])
     except (IndexError, ValueError):
         port = 8005
-    httpd = wsgiref.simple_server.make_server('', port, Application())
-    httpd.serve_forever()
+    print('Serving on port %d...' % port)
+    try:
+        httpd = wsgiref.simple_server.make_server('', port, Application())
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print()
+        print('Closing...')
+        httpd.shutdown()
+        sys.exit(1)
