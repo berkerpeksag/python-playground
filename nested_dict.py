@@ -1,6 +1,3 @@
-# coding: utf-8
-
-
 class NestedDict(dict):
     def __getitem__(self, key):
         if key in self:
