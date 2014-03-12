@@ -1,7 +1,5 @@
 from __future__ import print_function
 
-from memoize import memoize
-
 
 def fib1(n):
     """Iterative Fibonacci example."""
@@ -27,12 +25,8 @@ def fib3(n, current=0, next_item=1):
         return fib3(n - 1, next_item, current + next_item)
 
 
-fib4 = memoize(fib2)
-fib4.__doc__ = 'Fibonacci example with the memoization pattern.'
-
-
 if __name__ == '__main__':
-    for fib in (fib1, fib3, fib4, fib2):
+    for fib in (fib1, fib3, fib2):
         print(fib.__doc__)
         print(fib(5))
         print(fib(1))
