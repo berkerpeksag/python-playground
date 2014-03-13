@@ -2,7 +2,7 @@ from __future__ import print_function
 
 
 def fac1(n):
-    """Factorial example *without* tail call optimization."""
+    """Iterative factorial example."""
     r = 1
     for i in xrange(1, n + 1):
         r *= i
@@ -10,11 +10,10 @@ def fac1(n):
 
 
 def fac2(n, f=1):
-    """Factorial example *with* tail call optimization."""
+    """Tail recursive factorial example."""
     if n == 1:
         return f
-    else:
-        return fac2(n - 1, n * f)
+    return fac2(n - 1, n * f)
 
 
 if __name__ == '__main__':
