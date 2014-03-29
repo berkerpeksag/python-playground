@@ -1,21 +1,25 @@
+from __future__ import print_function
+
+
 class NestedDict(dict):
+
     def __getitem__(self, key):
         if key in self:
             return self.get(key)
         return self.setdefault(key, NestedDict())
 
-    def __add__(self, other):
-        return other
 
-    def __sub__(self, other):
-        return other
+class NestedDictAlt(dict):
 
-
-def main():
-    d = NestedDict()
-    d['a']['b'] = 'c'
-    print d
+    def __missing__(self, key):
+        return self.setdefault(key, NestedDictAlt())
 
 
 if __name__ == '__main__':
-    main()
+    d = NestedDict()
+    d['a']['b'] = 'c'
+    print(d)
+
+    d2 = NestedDictAlt()
+    d2['a']['b'] = 'c'
+    print(d2)
