@@ -1,4 +1,4 @@
-# taken from https://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/
+# based on https://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/
 # tested with Python 3.4
 
 import ctypes
