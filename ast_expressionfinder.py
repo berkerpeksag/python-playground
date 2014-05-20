@@ -1,9 +1,12 @@
+from __future__ import print_function
+
 import ast
 import collections
 import sys
 
 
 class ExpressionFinder(ast.NodeVisitor):
+
     def visit_Str(self, node):
         return repr(node.s)
 
@@ -32,10 +35,13 @@ class ExpressionFinder(ast.NodeVisitor):
         return self.exprs
 
 
-def main(filename):
-    source = open(filename).read()
-    node = ast.parse(source, mode='exec')
-    return ExpressionFinder().expressions(node)
-
 if __name__ == '__main__':
-    main(sys.argv[1])
+    if len(sys.argv) != 2:
+        print('usage: %s <file>' % __file__, file=sys.stderr)
+        sys.exit(1)
+    with open(sys.argv[1]) as fobj:
+        source = fobj.read()
+    nodes = ast.parse(source, mode='exec')
+    exps = ExpressionFinder().expressions(nodes)
+    for lineo, exp in exps.items():
+        print(lineno, exp)
