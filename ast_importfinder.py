@@ -26,7 +26,8 @@ class ImportFinder(ast.NodeVisitor):
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print('usage: ast_importfinder.py <file>', file=sys.stderr)
+        print('usage: %s <file>' % __file__, file=sys.stderr)
+        sys.exit(1)
     with open(sys.argv[1]) as fobj:
         ast_file = ast.parse(fobj.read())
     imports = ImportFinder()
