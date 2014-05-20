@@ -16,12 +16,10 @@ class ImportFinder(ast.NodeVisitor):
     def visit_Import(self, node):
         self.imports.extend(Result(None, n.name, n.asname, None)
                             for n in node.names)
-        self.generic_visit(node)
 
     def visit_ImportFrom(self, node):
         self.imports.extend(Result(node.module, n.name, n.asname, node.level)
                             for n in node.names)
-        self.generic_visit(node)
 
 
 if __name__ == '__main__':
