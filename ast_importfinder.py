@@ -10,7 +10,6 @@ Result = collections.namedtuple('Result', 'module name asname level')
 class ImportFinder(ast.NodeVisitor):
 
     def __init__(self):
-        super(ImportFinder, self).__init__()
         self.imports = []
 
     def visit_Import(self, node):
