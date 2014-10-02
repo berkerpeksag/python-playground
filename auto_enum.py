@@ -16,8 +16,8 @@ class Enum(metaclass=AutoEnum):
     pass
 
 if __name__ == '__main__':
-    class MyClass(Enum):
+    class MyEnum(Enum):
         apple
         orange
 
-    print(MyClass.apple, MyClass.orange)
+    print(MyEnum.apple, MyEnum.orange)
