@@ -1,12 +1,5 @@
-# coding: utf-8
-
 """
 Add context manager for the ``try: ... except: pass`` pattern.
-
-.. note::
-   ``contextlib.ignored`` has been added to Python 3.4. See the
-   related changeset:
-   http://hg.python.org/cpython/rev/406b47c64480
 
 It is a somewhat common pattern to write::
 
@@ -16,6 +9,12 @@ It is a somewhat common pattern to write::
         pass
 
 See for more information: http://bugs.python.org/issue15806
+
+.. note::
+   ``contextlib.ignored`` has been added to Python 3.4. See the
+   related changeset:
+   http://hg.python.org/cpython/rev/406b47c64480
+
 """
 
 from contextlib import contextmanager
@@ -48,7 +47,7 @@ class Ignore:
         return exctype and issubclass(exctype, self.ignored_exceptions)
 
 
-def main():
+if __name__ == '__main__':
     dct = {}
 
     # decorator version
@@ -63,6 +62,3 @@ def main():
         del dct['spam']
     except KeyError:
         pass
-
-if __name__ == '__main__':
-    main()
