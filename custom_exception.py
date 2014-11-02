@@ -4,6 +4,6 @@ class UnknownTimeZoneError(KeyError):
         self.zone = zone
 
     def __str__(self):
-        return "There is no time zone called '{!s}'".format(self.zone)
+        return "There is no time zone called {!r}".format(self.zone)
 
 raise UnknownTimeZoneError('Istanbul')
