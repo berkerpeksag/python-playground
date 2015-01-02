@@ -11,12 +11,12 @@ objects. They can have everything instances have, and as import statements don't
 make copies there is only ever one of them. We don't need no stinkin'
 design patterns.
 
-http://code.activestate.com/recipes/66531-singleton-we-dont-need-no-stinkin-singleton-the-bo/#c23 
+http://code.activestate.com/recipes/66531-singleton-we-dont-need-no-stinkin-singleton-the-bo/#c23
 """
 
 class Singleton(object):
     def __new__(cls, *args, **kwargs):
-        if not '_instance' in cls.__dict__:
+        if '_instance' not in cls.__dict__:
             cls._instance = object.__new__(cls, args, kwargs)
         return cls._instance
 
