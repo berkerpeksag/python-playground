@@ -6,13 +6,16 @@ Notes
 -----
 
 Classes and modules are singletons. You don't need singletons in python simply
-because classes and modules are always singletons, and they are also first class
-objects. They can have everything instances have, and as import statements don't
-make copies there is only ever one of them. We don't need no stinkin'
-design patterns.
+because classes and modules are always singletons, and they are also first
+class objects. They can have everything instances have, and as import
+statements don't make copies there is only ever one of them. We don't need no
+stinkin' design patterns.
 
 http://code.activestate.com/recipes/66531-singleton-we-dont-need-no-stinkin-singleton-the-bo/#c23
 """
+
+from __future__ import print_function
+
 
 class Singleton(object):
     def __new__(cls, *args, **kwargs):
@@ -23,6 +26,7 @@ class Singleton(object):
 
 class Borg(object):
     _state = {}
+
     def __new__(cls, *args, **kwargs):
         self = object.__new__(cls, *args, **kwargs)
         self.__dict__ = cls._state
@@ -31,7 +35,7 @@ class Borg(object):
 
 def borg(cls):
     """A class decorator for Borg design pattern."""
-    cls._state = dict()
+    cls._state = {}
     _new = cls.__new__
 
     def wrapper(self, *args, **kwargs):
@@ -45,4 +49,4 @@ def borg(cls):
 @borg
 class Spam(object):
     def eggs(self):
-        print 'Borg!'
+        print('Borg!')
