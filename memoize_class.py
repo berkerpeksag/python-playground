@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-
 class cached_property(object):
     """A memoize decorator for class properties."""
 
