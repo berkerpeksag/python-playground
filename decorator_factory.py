@@ -11,9 +11,12 @@ replace the decorated function.
 
 """
 
+import functools
+
 
 def repeat_for(times):
     def deco(func):
+        @functools.wraps(func)
         def inner():
             for x in range(times):
                 func()
@@ -31,3 +34,30 @@ def bye():
     print("bye")
 
 # same as bye = repeat_for(2)(bye)
+
+hello()
+bye()
+
+
+def tags(tag_name):
+    def tags_decorator(func):
+        @functools.wraps(func)
+        def func_wrapper(name):
+            return "<{0}>{1}</{0}>".format(tag_name, func(name))
+        return func_wrapper
+    return tags_decorator
+
+
+@tags("p")
+def get_text(name):
+    """Return some text."""
+    return "Hello {}".format(name)
+
+
+def get_text_not_decorated(name):
+    """Return some text."""
+    return "Hello {}".format(name)
+
+
+print(get_text("Lindsay"))
+print(tags("p")(get_text_not_decorated)("Lindsay"))
