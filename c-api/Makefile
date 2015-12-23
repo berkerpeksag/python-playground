@@ -1,3 +1,4 @@
 default::
-	python3.3 setup.py build
-	sudo python3.3 setup.py install
+	. venv/bin/activate
+	python setup.py build
+	python setup.py install

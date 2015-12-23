@@ -21,7 +21,7 @@ static PyMethodDef SpamMethods[] = {
 static struct PyModuleDef spammodule = {
     PyModuleDef_HEAD_INIT,
     "spam",
-    "doc",
+    "Documentation of spam module",
     -1,
     SpamMethods
 };
