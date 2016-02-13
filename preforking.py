@@ -27,7 +27,7 @@ for _ in range(5):
 
 try:
     while True:
-        wpid, status = os.waitpid(-1, os.WNOHANG)
+        wpid, _ = os.waitpid(-1, os.WNOHANG)
         if not wpid:
             break
 except ChildProcessError:
