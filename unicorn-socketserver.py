@@ -5,23 +5,21 @@ by http://tomayko.com/writings/unicorn-is-unix.
 """
 
 import os
-import SocketServer
+import socketserver
 
 
-class EchoHandler(SocketServer.StreamRequestHandler):
-
+class EchoHandler(socketserver.StreamRequestHandler):
     def handle(self):
-        self.wfile.write('Child %s echo>' % os.getpid())
+        self.wfile.write('Child {} echo>'.format(os.getpid()).encode())
         self.wfile.flush()
         message = self.rfile.readline()
         self.wfile.write(message)
-        print "Child %s echo'd: %r" % (os.getpid(), message)
-
+        print("Child {} echo'd: {!r}".format(os.getpid(), message))
 
 if __name__ == '__main__':
-    server = SocketServer.ForkingTCPServer(('localhost', 4242), EchoHandler)
-    print "Server listening on localhost:4242..."
+    server = socketserver.ForkingTCPServer(('localhost', 4242), EchoHandler)
+    print("Server listening on localhost:4242...")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print "\nbailing..."
+        print("\nbailing...")

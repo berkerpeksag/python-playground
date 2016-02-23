@@ -11,7 +11,7 @@ import socket
 # Create a socket, bind it to localhost:4242, and start
 # listening. Runs once in the parent; all forked children
 # inherit the socket's file descriptor.
-acceptor = socket.socket()
+acceptor = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 acceptor.bind(('localhost', 4242))
 acceptor.listen(10)
 
@@ -34,7 +34,7 @@ for i in range(3):
         # interrupts by catching KeyboardInterrupt) and exit
         # immediately instead of dumping stack to stderr.
         childpid = os.getpid()
-        print "Child %s listening on localhost:4242" % childpid
+        print("Child %s listening on localhost:4242" % childpid)
         try:
             while True:
                 # This is where the magic happens. accept(2)
@@ -44,14 +44,14 @@ for i in range(3):
 
                 # For easier use, turn the socket connection
                 # into a file-like object.
-                flo = conn.makefile()
+                flo = conn.makefile(mode='rw')
                 flo.write('Child %s echo> ' % childpid)
                 flo.flush()
                 message = flo.readline()
                 flo.write(message)
                 flo.close()
                 conn.close()
-                print "Child %s echo'd: %r" % (childpid, message.strip())
+                print("Child %s echo'd: %r" % (childpid, message.strip()))
         except KeyboardInterrupt:
             sys.exit()
 
