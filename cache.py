@@ -16,11 +16,16 @@ Usage::
     except KeyError:
         item = item_factory()
         cache.set(key, item)
+
+    print(len(cache))
 """
 
-class Cache(object):
+import unittest
 
-    def __init__(self, maxsize=100):
+
+class Cache:
+
+    def __init__(self, *, maxsize=100):
         self.cache = {}
         self.order = []  # least recently used first
         self.maxsize = maxsize
@@ -32,7 +37,7 @@ class Cache(object):
         return item
 
     def set(self, key, value):
-        if self.cache.has_key(key):
+        if key in self.cache:
             self.order.remove(key)
         elif len(self.cache) >= self.maxsize:
             # discard least recently used item
@@ -40,5 +45,37 @@ class Cache(object):
         self.cache[key] = value
         self.order.append(key)
 
-    def size(self):
+    def __len__(self):
         return len(self.cache)
+
+
+class CacheTestCase(unittest.TestCase):
+
+    def setUp(self):
+        self.cache = Cache()
+
+    def test_get(self):
+        self.assertRaises(KeyError, self.cache.get, 'foo')
+        self.cache.set('foo', 'bar')
+        self.assertEqual(self.cache.get('foo'), 'bar')
+
+    def test_set(self):
+        self.cache.set('foo', 'foo')
+        self.assertEqual(self.cache.get('foo'), 'foo')
+        self.cache.set('foo', 'bar')
+        self.assertEqual(self.cache.get('foo'), 'bar')
+
+    def test_len(self):
+        self.assertEqual(len(self.cache), 0)
+        self.cache.set('bar', 'baz')
+        self.assertEqual(len(self.cache), 1)
+        self.cache.set('key', 'value')
+        self.assertEqual(len(self.cache), 2)
+
+    def test_maxsize(self):
+        self.assertEqual(self.cache.maxsize, 100)
+        cache = Cache(maxsize=42)
+        self.assertEqual(cache.maxsize, 42)
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
