@@ -2,10 +2,10 @@
 Simple cache implementation
 ---------------------------
 
-The following is a simple cache implementation, which is suitable for relatively
-small caches (up to a few hundred items), and where it’s relatively costly to
-create or reload objects after a cache miss (e.g. a few milliseconds or more per
-object).
+The following is a simple cache implementation, which is suitable for
+relatively small caches (up to a few hundred items), and where it’s
+relatively costly to create or reload objects after a cache miss
+(e.g. a few milliseconds or more per object.)
 
 Usage::
 
