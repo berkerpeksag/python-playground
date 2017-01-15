@@ -18,6 +18,12 @@ Usage::
         cache.set(key, item)
 
     print(len(cache))
+
+TODO items:
+
+* Add cache.get(key, default)
+* Use collections.MutableMapping
+
 """
 
 import unittest
