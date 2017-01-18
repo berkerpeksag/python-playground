@@ -63,5 +63,5 @@ for i in range(3):
 try:
     os.waitpid(-1, 0)
 except KeyboardInterrupt:
-    print "\nbailing"
+    print("\nbailing")
     sys.exit()
