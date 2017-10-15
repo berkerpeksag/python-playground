@@ -1,20 +1,20 @@
 #include <Python.h>
 
 static PyObject *
-spam_strptime(PyObject *self, PyObject *args)
+spam_eggs(PyObject *self, PyObject *args)
 {
-    const char *date_string;
-    const char *format;
+    const char *foo;
+    const char *bar;
 
-    if (!PyArg_ParseTuple(args, "ss", &date_string, &format))
+    if (!PyArg_ParseTuple(args, "ss", &foo, &bar))
         return NULL;
 
-    return Py_BuildValue("ss", date_string, format);
+    return Py_BuildValue("ss", foo, bar);
 }
 
 static PyMethodDef SpamMethods[] = {
-    {"strptime", spam_strptime, METH_VARARGS,
-     "Return a parsed date object."},
+    {"eggs", spam_eggs, METH_VARARGS,
+     "Return a tuple of '(foo, bar)'."},
     {NULL, NULL, 0, NULL}
 };
 
