@@ -25,12 +25,12 @@ spam_exec(PyObject *module)
     return 0;
 }
 
-static PyModuleDef_Slot spam_slots[] = {
+static struct PyModuleDef_Slot spam_slots[] = {
     {Py_mod_exec, spam_exec},
     {0, NULL},
 };
 
-static PyModuleDef spammodule = {
+static struct PyModuleDef spammodule = {
     PyModuleDef_HEAD_INIT,
     "spam",
     PyDoc_STR("Documentation of spam module"),
