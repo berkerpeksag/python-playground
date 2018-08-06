@@ -12,7 +12,7 @@ spam_eggs(PyObject *self, PyObject *args)
     return Py_BuildValue("ss", foo, bar);
 }
 
-static PyMethodDef SpamMethods[] = {
+static PyMethodDef spam_methods[] = {
     {"eggs", spam_eggs, METH_VARARGS,
      "Return a tuple of '(foo, bar)'."},
     {NULL, NULL, 0, NULL}
@@ -21,9 +21,13 @@ static PyMethodDef SpamMethods[] = {
 static struct PyModuleDef spammodule = {
     PyModuleDef_HEAD_INIT,
     "spam",
-    "Documentation of spam module",
+    PyDoc_STR("Documentation of spam module"),
     -1,
-    SpamMethods
+    spam_methods,
+    NULL,
+    NULL,
+    NULL,
+    NULL
 };
 
 PyMODINIT_FUNC
